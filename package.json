@@ -1,0 +1,8 @@
+{
+  "name": "magrathea-labs",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1"
+  }
+}
