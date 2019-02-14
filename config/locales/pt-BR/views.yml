@@ -1,0 +1,16 @@
+pt-BR:
+  view:
+    wait: "Aguarde..."
+    login: "Entrar"
+    register: "Cadastre-se"
+    send: "Enviar"
+    devise:
+      title:
+        register: Cadastre-se, é grátis!
+        login: Já tenho conta!
+        forgot: Esqueceu sua senha?
+      cta:
+        register: Criar uma conta
+        login: Faça o login
+        remember: Esqueceu a senha?
+        forgot: Solicitar nova senha

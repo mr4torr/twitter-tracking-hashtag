@@ -23,8 +23,9 @@ html
 
   body
     = render 'partials/structures/header'
-    / = render partial: 'partials/flash'
     article.container
+      = render partial: 'partials/flash'
       = yield
     = render 'partials/structures/footer'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = yield :javascript_footer

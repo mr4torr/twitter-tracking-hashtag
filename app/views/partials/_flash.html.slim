@@ -1,0 +1,5 @@
+.alerts.mt-3[data-turbolinks-permanent]
+  - flash.each do |key, value|
+    .alert[class="alert-#{key == 'alert' ? 'danger' : 'success' }"]
+      b = I18n.t "flash.title.#{key}"
+      p.mb-1 = value

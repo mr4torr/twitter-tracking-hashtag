@@ -1,8 +1,8 @@
 .forgot.mfp-body
-  h4 Esqueceu sua senha?
+  h4 = I18n.t 'view.devise.title.forgot'
   hr
   p.small.text-muted
-    | Não tem problema, basta digitar o seu endereço de e-mail abaixo! Enviaremos um link para redefinir a senha.
+    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam sapiente repellat provident distinctio quisquam porro illum debitis nisi tempore. Nostrum iusto aspernatur esse porro in quibusdam cum omnis praesentium illo?
 
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
     = f.error_notification
@@ -11,7 +11,7 @@
       = f.input :email, required: true, autofocus: true
 
     .form-actions
-      = f.button :submit, "Enviar link de recuperação de senha", class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
+      = f.button :submit, I18n.t('view.send'), class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
 
   .text-center.mt-3
     | Já possui conta? #{link_to "Faça o login", popup_signin_path, class: 'ajax-popup-link'}

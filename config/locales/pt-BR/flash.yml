@@ -1,0 +1,7 @@
+pt-BR:
+  flash:
+    title:
+      alert: 'Erro'
+      notice: 'Aviso'
+      info: 'Informação'
+      success: 'Sucesso'

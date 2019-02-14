@@ -1,13 +1,16 @@
 .signup.mfp-body
-  h4 Cadastre-se, é grátis!
+  h4 = I18n.t 'view.devise.title.register'
   hr
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
     .form-inputs
-      = f.input :email, label: "E-mail", required: false, autofocus: true
-      = f.input :password, label: "Senha", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-      = f.input :password_confirmation, label: "Confirmar senha", required: true
+      = f.input :email, required: false, autofocus: true
+      = f.input :password, required: true
+      = f.input :password_confirmation, required: true
     .form-actions
-      = f.button :submit, "Inscreva-se", class: 'btn btn-primary btn-block', "data-disable-with" => t("view.wait")
+      = f.button :submit, t("view.register"),\
+        class: 'btn btn-primary btn-block',\
+        "data-disable-with" => t("view.wait")
     .text-center.mt-3
-      |  Já tenho conta! #{link_to "Faça o login", popup_signin_path, class: 'ajax-popup-link'}
+      = I18n.t('view.devise.title.login')
+      = link_to I18n.t('view.devise.cta.login'), popup_signin_path, class: 'ajax-popup-link ml-2'
