@@ -1,0 +1,20 @@
+.forgot.mfp-body
+  h4 Esqueceu sua senha?
+  hr
+  p.small.text-muted
+    | Não tem problema, basta digitar o seu endereço de e-mail abaixo! Enviaremos um link para redefinir a senha.
+
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :email, required: true, autofocus: true
+
+    .form-actions
+      = f.button :submit, "Enviar link de recuperação de senha", class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
+
+  .text-center.mt-3
+    | Já possui conta? #{link_to "Faça o login", popup_signin_path, class: 'ajax-popup-link'}
+
+  .text-center.mt-1
+    = link_to "Crie a sua conta", popup_signup_path, class: 'ajax-popup-link'

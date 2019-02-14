@@ -1,0 +1,20 @@
+.signin.mfp-body
+  h4 Entrar...
+  hr
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :email, label: "E-mail", required: false, autofocus: true
+      = f.input :password, label: "Senha", required: false
+
+      .row.mb-3
+        .col
+          = f.input :remember_me, label: "Lembrar?", as: :boolean if devise_mapping.rememberable?
+        .col.text-right
+          = link_to "Esqueceu a senha?", popup_forgot_path, class: 'ajax-popup-link'
+
+    .form-actions
+      = f.button :submit, "Entrar", class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
+
+    .text-center.mt-3
+      |  Crie uma conta #{link_to "Crie uma conta", popup_signup_path, class: 'ajax-popup-link'}

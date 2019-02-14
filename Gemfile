@@ -38,3 +38,4 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'slim-rails'
 gem 'devise'
+gem 'simple_form'

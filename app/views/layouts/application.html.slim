@@ -1,15 +1,30 @@
+- title = "App Magrathea Labs"
+- meta_description = "Twitter integration app to search for tweets by hashtag"
+- meta_image = "Twitter integration app to search for tweets by hashtag"
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>MagratheaLabs</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+html
+  head
+    title = title
+    = csrf_meta_tags
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    meta content="#{title}" property="og:title"
+    meta content="#{meta_description}" name="description"
+    meta content="#{meta_description}" property="og:description"
+    meta content="#{meta_image}" property="og:image"
+    meta content="summary" name="twitter:card"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    meta content="index,follow" name="robots"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    meta name="theme-color" content="#CC0000"
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = yield :javascript_header
+
+  body
+    = render 'partials/structures/header'
+    / = render partial: 'partials/flash'
+    article.container
+      = yield
+    = render 'partials/structures/footer'
+    = yield :javascript_footer
