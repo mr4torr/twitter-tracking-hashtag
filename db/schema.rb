@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_130907) do
+ActiveRecord::Schema.define(version: 2019_02_16_200654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.integer "tweet_id"
+    t.bigint "tweet_id"
     t.string "name"
     t.string "slug"
     t.string "picture"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_130907) do
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "tweet_id"
+    t.bigint "tweet_id"
     t.text "text"
     t.bigint "author_id"
     t.bigint "tag_id"
