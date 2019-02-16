@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweet_id: 1
+  text: MyText
+  author: one
+  tag: one
+  retweet_count: 1
+  favorite_count: 1
+  tweet_created_at: 2019-02-16 11:09:07
+
+two:
+  tweet_id: 1
+  text: MyText
+  author: two
+  tag: two
+  retweet_count: 1
+  favorite_count: 1
+  tweet_created_at: 2019-02-16 11:09:07
