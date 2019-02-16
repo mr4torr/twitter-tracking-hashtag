@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_005041) do
+ActiveRecord::Schema.define(version: 2019_02_16_130907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.integer "tweet_id"
+    t.string "name"
+    t.string "slug"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.boolean "processing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.integer "tweet_id"
+    t.text "text"
+    t.bigint "author_id"
+    t.bigint "tag_id"
+    t.integer "retweet_count"
+    t.integer "favorite_count"
+    t.datetime "tweet_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_tweets_on_author_id"
+    t.index ["tag_id"], name: "index_tweets_on_tag_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +57,6 @@ ActiveRecord::Schema.define(version: 2019_02_14_005041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tweets", "authors"
+  add_foreign_key "tweets", "tags"
 end
