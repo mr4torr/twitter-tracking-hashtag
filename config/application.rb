@@ -16,7 +16,7 @@ module MagratheaLabs
     config.i18n.available_locales = [:"pt-BR"]
     config.i18n.default_locale = :"pt-BR"
 
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
 
 
     # Settings in config/environments/* take precedence over those specified here.
