@@ -75,8 +75,10 @@ test:
 #
 # You can use this database configuration with:
 #
-  production:
-    url: <%= ENV['DATABASE_URL'] %>
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+  # database: magrathea-labs_production
 #
 # production:
 #   <<: *default
