@@ -1,0 +1,20 @@
+.media.border-bottom.p-4
+  img.mr-3[src=tweet.author.picture alt=tweet.author.name]
+  .media-body
+    h5.p-0.m-0
+      =tweet.author.name
+      small.text-muted @#{tweet.author.slug}
+    small.text-muted= tweet.tweet_created_at.strftime('%d %B %Y %H:%M')
+    .mt-2 = simple_format tweet.text
+
+    ul.nav.nav-pills.small.text-muted.mt-3
+      li.nav-item.mr-2
+        = tweet.favorite_count
+        |  Curtido
+      li.nav-item.mr-2 -
+      li.nav-item.mr-2
+        = tweet.retweet_count
+        |  Retweetado
+      li.nav-item.mr-2 -
+      li.nav-item.mr-2
+        = link_to "Abrir", "https://twitter.com/#{tweet.author.slug}/status/#{tweet.tweet_id}", target: '_blank'

@@ -1,19 +1,12 @@
-header.navbar.navbar-expand-lg.border-bottom.navbar-light.d-flex.justify-content-between
+header.navbar.navbar-light.border-bottom
   .container
+      = link_to "Magrathea Labs", root_path, class: 'navbar-brand'
 
-    .flex-fill
-      = link_to "#Testag - Magrathea Labs", root_path, class: 'navbar-brand'
+      | #TESTAG
 
-    - if user_signed_in?
-      form.form-inline
-        .form-group
-          label.sr-only O que procura?
-          input.form-control[type="text" id="q" name="q" placeholder="Ex: #magrathealabs"]
-        button.btn.btn-primary[type="submit"] Buscar
-
-    ul.navbar-nav
-      li.nav-item
-        - if user_signed_in?
-          = link_to "Sair", destroy_user_session_path, class: 'nav-link', method: :delete
-        - else
-          = link_to "Entrar", popup_signin_path, class: 'ajax-popup-link nav-link btn btn-outline-light'
+      ul.navbar-nav
+        li.nav-item
+          - if user_signed_in?
+            = link_to "Sair", destroy_user_session_path, class: 'btn btn-sm btn-outline-secondary', method: :delete
+          - else
+            = link_to "Entrar", popup_signin_path, class: 'ajax-popup-link btn btn-sm btn-outline-secondary'

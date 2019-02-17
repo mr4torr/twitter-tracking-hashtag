@@ -47,7 +47,7 @@ class TwitterService < Struct.new(:hashtag, :last_id)
     end
 
     def search_tweets!
-        client.search(get_hashtag, twitter_config).collect do |tweet|
+        client.search(get_hashtag + ' -filter:retweets', twitter_config).collect do |tweet|
             set_tweet(tweet) if tweet.is_a?(Twitter::Tweet)
         end
     end

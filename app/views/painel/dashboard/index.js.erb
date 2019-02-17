@@ -1,0 +1,3 @@
+$('#wrapper-content').html('<%=j render(partial: "partials/wrapper_tweets") %>')
+$('html,body').animate({ scrollTop: 0 }, 400);
+history.replaceState(null, null, app.getStateUrl('page', <%= params[:page] %>));

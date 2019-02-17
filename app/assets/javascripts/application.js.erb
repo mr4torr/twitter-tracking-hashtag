@@ -16,8 +16,24 @@
 //= require turbolinks
 //= require_tree .
 
-const app = {
+window.app = {
     importTweets: (el, msg) => {
         $(el).parent().find(".badge").html(msg);
+    },
+    getStateUrl: (key, value) => {
+        var href = void 0,
+        number_page = void 0;
+
+        href = window.location.href.replace(RegExp(key +"\=[0-9]+"), '');
+        if (href.slice(-1) != '?' && href.slice(-1) != '&') {
+            if (href.match(RegExp('\\?'))) {
+                href += '&';
+            } else {
+                href += '?';
+            }
+        }
+
+        href += [key, value].join('=');
+        return href
     }
 }

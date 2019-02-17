@@ -1,0 +1,13 @@
+= page_entries_info @tweets
+.bg-white.border-radius.mt-3.mb-5
+  = render partial: 'partials/tweet', collection: @tweets, as: :tweet
+
+.fixed-bottom.bg-light.shadow
+  .container
+    .row
+      .col-8
+        .mx-auto
+          = paginate @tweets, \
+            theme: 'twitter-bootstrap-4', \
+            pagination_class: "pagination-sm justify-content-center m-2",\
+            remote: true
