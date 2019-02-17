@@ -9,6 +9,9 @@ class Painel::DashboardController < Painel::PainelController
     protected
 
     def get_tweets
-        @tweets = Tweet.get_by_hashtag.page(params[:page])
+        @tweets = Tweet.get_by_hashtag(hashtag_ids).page(params[:page])
     end
+
+
+
 end

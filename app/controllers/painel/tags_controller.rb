@@ -4,7 +4,7 @@ class Painel::TagsController < Painel::PainelController
 
     def create
         @tag = Tag.new(permitted_params)
-        @tag.save!
+        @tag.save
     end
 
     def destroy

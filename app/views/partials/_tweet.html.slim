@@ -1,13 +1,17 @@
-.media.border-bottom.p-4
-  img.mr-3[src=tweet.author.picture alt=tweet.author.name]
+.media.p-4.bg-white.rounded.my-4.shadow-sm
+  img.mr-3.rounded-circle[src=tweet.author.picture alt=tweet.author.name]
   .media-body
     h5.p-0.m-0
       =tweet.author.name
-      small.text-muted @#{tweet.author.slug}
-    small.text-muted= tweet.tweet_created_at.strftime('%d %B %Y %H:%M')
-    .mt-2 = simple_format tweet.text
 
-    ul.nav.nav-pills.small.text-muted.mt-3
+
+    small.text-muted
+      = link_to "@#{tweet.author.slug}", "https://twitter.com/#{tweet.author.slug}", target: '_blank', class: 'mr-1'
+      | -
+      span.ml-1 = tweet.tweet_created_at.strftime('%d %B %Y %H:%M')
+    .my-4 = simple_format tweet.text
+
+    ul.nav.nav-pills.small.text-muted
       li.nav-item.mr-2
         = tweet.favorite_count
         |  Curtido

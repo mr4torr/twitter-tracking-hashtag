@@ -19,9 +19,9 @@
           = f.input_field :name, class: 'form-control form-control-sm'
           .input-group-append
             = f.button :submit, t("view.add"),\
-              class: 'btn btn-primary btn-sm btn-block',\
+              class: 'btn btn-secondary btn-sm btn-block rounded-right',\
               "data-disable-with" => t("view.wait")
           .invalid-feedback
       hr
       #hashtags
-        = render partial: 'painel/tags/item_tags'
+        = render partial: 'partials/item_tags'

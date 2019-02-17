@@ -1,8 +1,18 @@
 ul.nav.flex-column
+  li.nav-item.py-2
+    .small
+      b TODOS:
+      = link_to "Selecionar", painel_dashboard_path(page: params[:page]), class: 'mx-1'
+      | -
+      = link_to "Desmarcar", painel_dashboard_path(page: params[:page], hashtag: [0]), class: 'mx-1'
+
   - @tags.each do |tag|
     li.nav-item.py-2[data-id="#{tag.id}"]
       .badge.badge-dark.float-right.mt-1 = tag.tweets_count
-      = tag.name
+      = link_to painel_dashboard_path(hashtag: link_filter_hashtag(tag)) do
+        = hashtag_ids.include?(tag.id)
+        = tag.name
+
       = link_to 'Sync', painel_tag_import_path(id: tag.id, name: tag.name), \
         remote: true, \
         onclick: "app.importTweets(this, '#{I18n.t('view.processing')}')", \
