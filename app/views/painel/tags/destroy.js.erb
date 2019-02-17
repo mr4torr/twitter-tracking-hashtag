@@ -1,0 +1,7 @@
+<% if @tag.errors.present? %>
+    alert('<%= @tag.to_json %>')
+<% else %>
+    $("#hashtags").find('.nav-item[data-id="<%= @tag.id %>"]').slideUp(300, function(){
+        $(this).remove()
+    })
+<% end %>

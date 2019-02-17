@@ -27,5 +27,5 @@ html
       = render partial: 'partials/flash'
       = yield
     = render 'partials/structures/footer'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload',  'data-turbolinks-suppress-warning': true
     = yield :javascript_footer

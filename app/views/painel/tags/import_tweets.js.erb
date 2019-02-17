@@ -1,0 +1,4 @@
+$("#hashtags").find('.nav-item[data-id="<%= @tag.id %>"] .badge').html(<%= @tag.tweets_count %>)
+<% if @tweets_count == 0 %>
+    alert('<%= t('view.limit_exceeded') %>')
+<% end %>

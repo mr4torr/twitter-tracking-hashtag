@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
 
     namespace :painel do
-            get 'dashboard' => 'dashboard#index', as: :dashboard
+        get 'dashboard' => 'dashboard#index', as: :dashboard
+        resources :tags, only: %i[new create destroy]
+        get '/tags/import/:id/:name' => 'tags#import_tweets', as: :tag_import
+
     end
 end

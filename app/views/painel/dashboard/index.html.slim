@@ -1,1 +1,23 @@
-h1 Dashboard
+.row
+  .col-md-5.offset-md-2
+    h1 Dashboard
+  .col-md-3
+    .bg-light.px-3.py-3.mb-4
+      h3.m-0 Hashtag
+      small.text-muted = t('view.hashtag_count', count: @tags.length)
+      hr
+      = simple_form_for(Tag.new, url: painel_tags_path, remote: true) do |f|
+        = f.error_notification
+
+        .input-group.input-group-sm
+          .input-group-prepend
+            .input-group-text #
+          = f.input_field :name, class: 'form-control form-control-sm'
+          .input-group-append
+            = f.button :submit, "+",\
+              class: 'btn btn-primary btn-sm btn-block',\
+              "data-disable-with" => t("view.wait")
+          .invalid-feedback
+      hr
+      #hashtags
+        = render partial: 'painel/tags/item_tags'

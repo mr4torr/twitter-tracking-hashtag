@@ -4,6 +4,9 @@ class TwitterService < Struct.new(:hashtag, :last_id)
         new(hashtag, last_id).import!
     end
 
+    # ------------------------------------------
+    # Inicia o processo de importação
+    # ------------------------------------------
     def import!
 
         if hashtag.class.to_s != "String"
@@ -14,6 +17,7 @@ class TwitterService < Struct.new(:hashtag, :last_id)
             search_tweets!
         rescue Twitter::Error::TooManyRequests => e
             puts "==> #{e.to_s} <=="
+            # Caso estoure o limite retorna o que já tem
             return get_tweets
         end
         get_tweets
@@ -21,17 +25,23 @@ class TwitterService < Struct.new(:hashtag, :last_id)
 
     protected
 
+    # ------------------------------------------
+    # Verifica se a string tem hashtag e se não tiver adiciona
+    # ------------------------------------------
     def get_hashtag
         @get_hashtag ||= (hashtag[0] != '#') ? "##{hashtag}" : hashtag
     end
 
+    # ------------------------------------------
+    # Config para api do twitter
+    # ------------------------------------------
     def twitter_config
-        {
-            result_type: 'recent',
-            since_id: last_id || nil
-        }
+        { since_id: last_id }
     end
 
+    # ------------------------------------------
+    # Retorna as info do secrets.yaml
+    # ------------------------------------------
     def secret_config
         @secret_config ||= Rails.application.secrets.twitter
     end

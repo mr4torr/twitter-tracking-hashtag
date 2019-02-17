@@ -1,0 +1,17 @@
+<% if @tag.errors.present? %>
+    $("#tag_name").addClass('is-invalid')
+    $("#tag_name").parent().find('.invalid-feedback').html('<%=j @tag.errors['name'][0] %>')
+<% else %>
+    var tag_name = $("#tag_name");
+    tag_name.removeClass('is-invalid');
+    tag_name.val('');
+    tag_name.addClass('is-valid');
+    tag_name.parent().find('.valid-feedback').html('<%= j @tag.errors['name'][0] %>')
+    setTimeout(function(){ tag_name.removeClass('is-valid') }, 3000)
+    $("#hashtags").html('<%=j render partial: "painel/tags/item_tags" %>');
+    setTimeout(function() {
+        const new_hashtag_link = $("#hashtags").find('.nav-item[data-id="<%= @tag.id %>"]')
+        app.importTweets(new_hashtag_link.find('.btn-proccessing'))
+        $.get('<%= painel_tag_import_path(id: @tag.id, name: @tag.name) %>')
+    }, 500)
+<% end %>

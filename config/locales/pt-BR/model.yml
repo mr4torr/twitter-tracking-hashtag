@@ -10,3 +10,10 @@ pt-BR:
         password: "Senha"
         password_confirmation: "Confirmar Senha"
         remember_me: Lembrar?
+    errors:
+      models:
+        tag:
+          attributes:
+            name:
+              blank: 'Campo obrigatório!'
+              taken: 'Hashtag já cadastrado!'

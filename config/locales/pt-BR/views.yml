@@ -4,6 +4,12 @@ pt-BR:
     login: "Entrar"
     register: "Cadastre-se"
     send: "Enviar"
+    add: "Adicionar"
+    confirm_delete: "Você realmente deseja excluir esse registro?"
+    hashtag_count: "%{count} hashtags cadastradas"
+    processing: "Atualizando..."
+    limit_exceeded: "Não foi encontrato novos tweets ou foi excedido o limite da api."
+    new_tweets: "Foram encontrados %{count} novos tweets."
     devise:
       title:
         register: Cadastre-se, é grátis!

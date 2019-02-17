@@ -15,3 +15,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+const app = {
+    importTweets: (el, msg) => {
+        $(el).parent().find(".badge").html(msg);
+    }
+}

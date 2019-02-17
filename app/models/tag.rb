@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-    has_many :tweets
+    has_many :tweets, :dependent => :delete_all
 
-    validates :name, presence: true
+    default_scope { order(name: :asc) }
+    validates :name, presence: true, uniqueness: true
 end
