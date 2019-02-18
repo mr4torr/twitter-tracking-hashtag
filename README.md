@@ -2,11 +2,10 @@
 App que acompanha tweets de hashtags expecíficas
 
 ## Demo
-[https://magrathealabs.herokuapp.com/]https://magrathealabs.herokuapp.com/
+https://magrathealabs.herokuapp.com/
 
-Usuário: admin@example.com
-Senha: password
-
+* Usuário: admin@example.com
+* Senha: password
 
 ## Installation
 A API do Twitter exige que você se autentique, então você precisará
