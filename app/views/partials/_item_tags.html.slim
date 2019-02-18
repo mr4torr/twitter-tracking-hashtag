@@ -35,4 +35,7 @@ ul.nav.flex-column
               data: {confirm: t('view.confirm_delete')}
 
           span.small.text-muted.counter
-            | #{tag.tweets_count}
+            - if tag.processing
+              = t("view.processing")
+            - else
+              = tag.tweets_count
