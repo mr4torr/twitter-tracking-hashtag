@@ -1,4 +1,4 @@
-header.navbar.navbar-light.border-bottom
+header.navbar.navbar-dark.bg-secondary
   .container
       = link_to "#TESTAGS", root_path, class: 'navbar-brand'
       span.navbar-text.mr-auto Magrathea Labs
@@ -6,6 +6,6 @@ header.navbar.navbar-light.border-bottom
       ul.navbar-nav.ml-2
         li.nav-item
           - if user_signed_in?
-            = link_to "Sair", destroy_user_session_path, class: 'btn btn-sm btn-outline-secondary', method: :delete
+            = link_to "Sair", destroy_user_session_path, class: 'btn btn-sm btn-light', method: :delete
           - else
-            = link_to "Entrar", user_session_path, class: 'ajax-popup-link btn btn-sm btn-outline-secondary'
+            = link_to "Entrar", user_session_path, class: 'btn btn-sm btn-light'
