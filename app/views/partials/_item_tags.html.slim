@@ -1,24 +1,38 @@
 ul.nav.flex-column
-  li.nav-item.py-2
-    .small
-      b TODOS:
-      = link_to "Selecionar", painel_dashboard_path(page: params[:page]), class: 'mx-1'
-      | -
-      = link_to "Desmarcar", painel_dashboard_path(page: params[:page], hashtag: [0]), class: 'mx-1'
+  li
+    .row.small
+      .col-6
+        span.custom-control.custom-checkbox
+          input.custom-control-input[type="checkbox" id="tag-all" checked=(hashtag_ids.length == @tags.length)]
+          label.custom-control-label[id="tag-all"]
+            = link_to t('view.check_all'), painel_dashboard_path(page: params[:page])
+      .col-6
+        span.custom-control.custom-checkbox
+          input.custom-control-input[type="checkbox" id="tag-zero" checked=(hashtag_ids.length == 1 && hashtag_ids[0] == 0)]
+          label.custom-control-label[id="tag-zero"]
+            = link_to t('view.check_remove'), painel_dashboard_path(page: params[:page], hashtag: [0])
 
   - @tags.each do |tag|
     li.nav-item.py-2[data-id="#{tag.id}"]
-      .badge.badge-dark.float-right.mt-1 = tag.tweets_count
-      = link_to painel_dashboard_path(hashtag: link_filter_hashtag(tag)) do
-        = hashtag_ids.include?(tag.id)
-        = tag.name
+      .row
+        .col-8
+          span.custom-control.custom-checkbox.mt-1
+            input.custom-control-input[type="checkbox" id="tag-#{tag.id}" checked=hashtag_ids.include?(tag.id)]
+            label.custom-control-label[id="tag-#{tag.id}"]
+              = link_to painel_dashboard_path(hashtag: link_filter_hashtag(tag)), class: 'text-muted' do
+                = tag.name
+        .col-4.text-right
+          .position-absolute.bg-white
 
-      = link_to 'Sync', painel_tag_import_path(id: tag.id, name: tag.name), \
-        remote: true, \
-        onclick: "app.importTweets(this, '#{I18n.t('view.processing')}')", \
-        class: 'btn btn-link btn-sm btn-proccessing'
-      = link_to 'Del', painel_tag_path(tag),
-        class: 'btn btn-link btn-sm  btn-destroy', \
-        remote: true, \
-        method: :delete, \
-        data: {confirm: t('view.confirm_delete')}
+            = link_to t('view.sync'), painel_tag_import_path(id: tag.id, name: tag.name), \
+              remote: true, \
+              onclick: "app.importTweets(this, '#{I18n.t('view.processing')}')", \
+              class: 'btn btn-outline-secondary btn-sm btn-proccessing ml-1'
+            = link_to t('view.del'), painel_tag_path(tag),
+              class: 'btn btn-outline-danger btn-sm  btn-destroy ml-1', \
+              remote: true, \
+              method: :delete, \
+              data: {confirm: t('view.confirm_delete')}
+
+          span.small.text-muted.counter
+            | #{tag.tweets_count}

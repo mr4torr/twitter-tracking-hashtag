@@ -18,7 +18,7 @@
 
 window.app = {
     importTweets: (el, msg) => {
-        $(el).parent().find(".badge").html(msg);
+        $(el).parents('.nav-item').find(".counter").html(msg);
     },
     getStateUrl: (key, value) => {
         var href = void 0,
@@ -37,3 +37,13 @@ window.app = {
         return href
     }
 }
+
+
+$(document).on('mouseenter', '#hashtags .nav-item', function(){
+    $(this).find('.position-absolute').addClass('d-block')
+    $(this).find('.position-absolute').removeClass('d-none')
+}).on('mouseleave', '#hashtags .nav-item', function(){
+    $(this).find('.position-absolute').addClass('d-none')
+    $(this).find('.position-absolute').removeClass('d-block')
+})
+$('#hashtags .nav-item .position-absolute').addClass('d-none');

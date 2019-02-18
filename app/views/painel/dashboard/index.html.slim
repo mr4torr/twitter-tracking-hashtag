@@ -1,27 +1,26 @@
 .row
-  .col-md-8
-    h1 Dashboard
+  .col-lg-8
+    h1.mt-4.mb-0 = t 'view.title.home'
 
     #wrapper-content
       = render partial: 'partials/wrapper_tweets'
 
-  .col-md-4
-    .bg-light.px-3.py-3.mb-4
-      h3.m-0 Hashtag
-      small.text-muted = t('view.hashtag_count', count: @tags.length)
-      hr
-      = simple_form_for(Tag.new, url: painel_tags_path, remote: true) do |f|
-        = f.error_notification
+  .col-lg-4
+    h4.m-0 = t('view.add')
+    small.text-muted Adicione sua hashtag sem espaço  e sem o símbolo (#).
+    = simple_form_for(Tag.new, url: painel_tags_path, remote: true, html: { class: 'mt-2' } ) do |f|
+      .input-group.input-group
+        .input-group-prepend
+          .input-group-text #
+        = f.input_field :name, class: 'form-control form-control'
+        .input-group-append
+          = f.button :submit, t("view.add"),\
+            class: 'btn btn-primary btn-sm btn-block rounded-right',\
+            "data-disable-with" => t("view.wait")
+        .invalid-feedback
 
-        .input-group.input-group-sm
-          .input-group-prepend
-            .input-group-text #
-          = f.input_field :name, class: 'form-control form-control-sm'
-          .input-group-append
-            = f.button :submit, t("view.add"),\
-              class: 'btn btn-secondary btn-sm btn-block rounded-right',\
-              "data-disable-with" => t("view.wait")
-          .invalid-feedback
-      hr
-      #hashtags
-        = render partial: 'partials/item_tags'
+    .bg-white.mt-4.shadow.rounded
+      .bg-dark.px-3.py-3.text-light.rounded-top
+        h4.m-0 Hashtag
+        small = t('view.hashtag_count', count: @tags.length)
+      #hashtags.px-3.py-3 = render partial: 'partials/item_tags'

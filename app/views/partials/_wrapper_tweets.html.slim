@@ -1,11 +1,11 @@
-= page_entries_info @tweets
+small.text-muted = page_entries_info @tweets
 .mt-3.mb-5
   = render partial: 'partials/tweet', collection: @tweets, as: :tweet
 
 .fixed-bottom.bg-light
   .container
     .row
-      .col-8
+      .col-lg-8
         .mx-auto
           = paginate @tweets, \
             theme: 'twitter-bootstrap-4', \

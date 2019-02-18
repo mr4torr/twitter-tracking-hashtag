@@ -16,4 +16,4 @@ pt-BR:
           attributes:
             name:
               blank: 'Campo obrigatório!'
-              taken: 'Hashtag já cadastrado!'
+              taken: 'Hashtag já cadastrada!'

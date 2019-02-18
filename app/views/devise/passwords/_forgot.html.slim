@@ -1,20 +1,22 @@
-.forgot.mfp-body
-  h4 = I18n.t 'view.devise.title.forgot'
-  hr
-  p.small.text-muted
-    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam sapiente repellat provident distinctio quisquam porro illum debitis nisi tempore. Nostrum iusto aspernatur esse porro in quibusdam cum omnis praesentium illo?
+.row
+  .col-md-6.offset-md-3.pt-5.pb-5
+    .bg-white.p-4.rounded.shadow-sm
+      h4 = I18n.t 'view.devise.title.forgot'
+      hr
+      p.small.text-muted
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam sapiente repellat provident distinctio quisquam porro illum debitis nisi tempore. Nostrum iusto aspernatur esse porro in quibusdam cum omnis praesentium illo?
 
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = f.error_notification
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = f.error_notification
 
-    .form-inputs
-      = f.input :email, required: true, autofocus: true
+        .form-inputs
+          = f.input :email, required: true, autofocus: true
 
-    .form-actions
-      = f.button :submit, I18n.t('view.send'), class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
+        .form-actions
+          = f.button :submit, I18n.t('view.send'), class: 'btn btn-block btn-primary', "data-disable-with" => t("view.wait")
 
-  .text-center.mt-3
-    | Já possui conta? #{link_to "Faça o login", popup_signin_path, class: 'ajax-popup-link'}
+      .text-center.mt-3
+        | Já possui conta? #{link_to "Faça o login", popup_signin_path, class: 'ajax-popup-link'}
 
-  .text-center.mt-1
-    = link_to "Crie a sua conta", popup_signup_path, class: 'ajax-popup-link'
+      .text-center.mt-1
+        = link_to "Crie a sua conta", popup_signup_path, class: 'ajax-popup-link'

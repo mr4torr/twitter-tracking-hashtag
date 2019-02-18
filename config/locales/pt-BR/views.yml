@@ -10,6 +10,12 @@ pt-BR:
     processing: "Atualizando..."
     limit_exceeded: "Não foi encontrato novos tweets ou foi excedido o limite da api."
     new_tweets: "Foram encontrados %{count} novos tweets."
+    del: "Del"
+    sync: "Sync"
+    check_all: "Selecionar todos"
+    check_remove: "Desmarcar todos"
+    title:
+      home: "Tweets"
     devise:
       title:
         register: Cadastre-se, é grátis!

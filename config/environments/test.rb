@@ -1,3 +1,5 @@
+open('.env', 'r').readlines.each {|l| kv = l.split('='); ENV[kv[0]] = kv[1];}
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -132,6 +132,9 @@ pt-BR:
       send_instructions: Dentro de minutos, você receberá um email com instruções de desbloqueio da sua conta.
       send_paranoid_instructions: Se sua conta existir em nosso banco de dados, você receberá em breve um email com instruções para desbloquear ela.
       unlocked: A sua conta foi desbloqueada com sucesso. Você está autenticado.
+    links:
+      forgot: Esqueceu a senha?
+
   errors:
     messages:
       already_confirmed: já foi confirmado
