@@ -1,9 +1,14 @@
 # Twitter integration
 App que acompanha tweets de hashtags expecíficas
 
+## Demo
+[https://magrathealabs.herokuapp.com/]https://magrathealabs.herokuapp.com/
+
+Usuário: admin@example.com
+Senha: password
+
 
 ## Installation
-
 A API do Twitter exige que você se autentique, então você precisará
 [registrar seu app no Twitter][register]. Depois de registrar sua
 aplicação.
@@ -16,7 +21,9 @@ adicionar esses valores no arquivo `.env`, para isso faça uma cópia do arquivo
 
 ```bash
 cp .env.example .env
+```
 
+```bash
 // Arquivo .env
 DEV_TWITTER_API_KEY=
 DEV_TWITTER_SECRET_KEY=
