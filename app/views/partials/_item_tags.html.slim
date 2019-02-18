@@ -22,7 +22,7 @@ ul.nav.flex-column
               = link_to painel_dashboard_path(hashtag: link_filter_hashtag(tag)), class: 'text-muted' do
                 = tag.name
         .col-4.text-right
-          .position-absolute.bg-white
+          .position-absolute.bg-white.d-none
 
             = link_to t('view.sync'), painel_tag_import_path(id: tag.id, name: tag.name), \
               remote: true, \
