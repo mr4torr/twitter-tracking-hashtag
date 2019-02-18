@@ -26,3 +26,7 @@ pt-BR:
         login: Faça o login
         remember: Esqueceu a senha?
         forgot: Solicitar nova senha
+    page:
+      home:
+        title: "Twitter Tracking Hashtag"
+        lead: "Aplicativo para acompanha tweets de hashtags expecíficas"
